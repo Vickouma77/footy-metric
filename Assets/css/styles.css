@@ -52,12 +52,12 @@ Header Nav-Bar
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(50px);
   z-index: -1;
 }
 
 .logo {
-  margin-left: -40px;
+  margin-left: -30px;
 }
 
 .nav-section {
@@ -97,31 +97,3 @@ button {
 /*================================ *\
 BreakPoints
 \*================================ */
-@media (max-width: 992px) {
-  .nav-bar {
-    padding: 1.1rem 5%;
-  }
-}
-
-@media (max-width: 768px) {
-  .icons {
-    display: inline-flex;
-  }
-
-  .nav-section {
-    position: fixed;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 17.7rem;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-  }
-
-  .nav-section a {
-    display: block;
-    font-size: 1.1rem;
-    margin: 1.5rem 0;
-    text-align: center;
-  }
-}
