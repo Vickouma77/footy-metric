@@ -74,6 +74,10 @@ Header Nav-Bar
 
 }
 
+.nav-section a:hover {
+  color: var(--primary-color);
+}
+
 
 button {
   padding: 9px 10px;
@@ -83,6 +87,12 @@ button {
   color: var(--secondary-color);
   font-size: 1rem;
   box-shadow: rgba(34, 34, 34, 0.555) 10px 10px 10px;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  cursor: pointer;
 }
 
 .icons {
