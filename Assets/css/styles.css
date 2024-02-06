@@ -16,11 +16,11 @@ CSS reset
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace, sans-serif;
 }
 
 body {
   min-height: 100vh;
-  font-family: 'Courier New', Courier, monospace, sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-color);
@@ -32,78 +32,140 @@ body {
 /*================================ *\
 Header Nav-Bar
 \*================================ */
-.nav-bar {
+.header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1.1rem 10%;
+  padding: 1.3rem 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
 }
 
-.nav-bar::before{
-  content: "";
+.header::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, .1);
   backdrop-filter: blur(50px);
   z-index: -1;
 }
 
+.header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent,  var(--primary-color), transparent);
+  transition: .5s;
+}
+
+.header:hover::after {
+  left: 100%;
+  transition: .5s;
+}
+
 .logo {
-  margin-left: -30px;
-}
-
-.nav-section {
-  margin-left: 30%;
-
-}
-
-.nav-section a {
-  font-size: 1.1rem;
-  font-weight: 900;
+  font-size: 2rem;
+  color: white;
+  font-weight: 700;
   text-decoration: none;
-  margin-left: 2rem;
-  color: rgb(255, 255, 255);
-
 }
 
-.nav-section a:hover {
+.navbar a {
+  font-size: 1.15rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 2.5rem;
+}
+
+.navbar a:hover {
   color: var(--primary-color);
 }
 
-
-button {
-  padding: 9px 10px;
-  border: 1px solid var(--primary-color);
-  border-radius: 10px;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  font-size: 1rem;
-  box-shadow: rgba(34, 34, 34, 0.555) 10px 10px 10px;
-}
-
-button:hover {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-  cursor: pointer;
+#check {
+  display: none;
 }
 
 .icons {
   position: absolute;
   right: 5%;
-  font-size: 2rem;
-  color: var(--secondary-color);
+  font-size: 2.8rem;
+  color: #fff;
   cursor: pointer;
   display: none;
 }
 
+
 /*================================ *\
-BreakPoints
+Break-Point
 \*================================ */
+
+@media (max-width: 992px) {
+  .header {
+    padding: 1.3rem 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .icons {
+    display: inline-block;
+  }
+
+  #check:checked~.icons #menu-icon {
+    display: none;
+  }
+
+  #check:checked~.icons #close-icon {
+    display: block;
+  }
+
+  .icons #close-icon {
+    display: none;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: rgba(0, 0, 0, .1);
+    backdrop-filter: blur(50px);
+    box-shadow: 0.5rem 1rem rgba(0, 0, 0, .1);
+    overflow: hidden;
+    transition: .3 ease;
+  }
+
+  #check:checked~.navbar {
+    height: 17.7rem;
+  }
+
+  .navbar a {
+    display: block;
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
+    text-align: center;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: .3s ease;
+  }
+
+  .navbar a:hover {
+    color: var(--primary-color);
+  }
+
+  #check:checked~.navbar a {
+    transform: translateY(0);
+    transition-delay: calc(.15s * var(--i));
+    opacity: 1;
+  }
+}
