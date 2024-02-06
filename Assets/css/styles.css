@@ -116,6 +116,12 @@ Break-Point
 }
 
 @media (max-width: 768px) {
+  body {
+    background: url('../images/background2.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
   .icons {
     display: inline-block;
   }
