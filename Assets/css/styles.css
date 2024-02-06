@@ -73,10 +73,11 @@ Header Nav-Bar
 }
 
 .logo {
-  font-size: 2rem;
+  /* font-size: 2rem;
   color: white;
   font-weight: 700;
-  text-decoration: none;
+  text-decoration: none; */
+  padding: 0;
 }
 
 .navbar a {
